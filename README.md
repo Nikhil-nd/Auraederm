@@ -9,10 +9,14 @@
 </p>
 
 <p align="center">
-	<img src="src/assets/images/clinic_hero_1782883016455.jpg" alt="Auraederm clinic hero" width="32%" />
-	<img src="src/assets/images/doctor_portrait_1782883002577.jpg" alt="Auraederm doctor portrait" width="32%" />
-	<img src="src/assets/images/skincare_treatment_1782883034252.jpg" alt="Auraederm skincare treatment" width="32%" />
+	<img src="src/assets/images/clinic_hero_1782883016455.jpg" alt="Auraederm clinic hero" width="48%" />
+	<img src="src/assets/images/skincare_treatment_1782883034252.jpg" alt="Auraederm skincare treatment" width="48%" />
 </p>
+
+## Visual Highlights
+
+- Clinic-style hero imagery for the landing page
+- Skincare treatment imagery that matches the site content
 
 ## Features
 
@@ -23,28 +27,6 @@
 - Community welfare highlights
 - Contact section with booking and service preselection
 - Mobile-friendly floating call button
-
-## Gallery
-
-<table>
-	<tr>
-		<td align="center">
-			<img src="src/assets/images/clinic_hero_1782883016455.jpg" alt="Clinic reception and hero" width="260" />
-			<br />
-			<strong>Clinic Hero</strong>
-		</td>
-		<td align="center">
-			<img src="src/assets/images/doctor_portrait_1782883002577.jpg" alt="Doctor portrait" width="260" />
-			<br />
-			<strong>Doctor Profile</strong>
-		</td>
-		<td align="center">
-			<img src="src/assets/images/skincare_treatment_1782883034252.jpg" alt="Skincare treatment" width="260" />
-			<br />
-			<strong>Treatment Experience</strong>
-		</td>
-	</tr>
-</table>
 
 ## Tech Stack
 
