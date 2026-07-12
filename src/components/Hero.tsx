@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Calendar, Award, ChevronLeft, ChevronRight, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Pagination, Navigation, Keyboard } from 'swiper/modules';
@@ -13,6 +13,22 @@ interface HeroProps {
 }
 
 export default function Hero({ onBookClick }: HeroProps) {
+  const swiperRef = useRef<any>(null);
+
+  const goToPreviousSlide = () => {
+    const swiper = swiperRef.current;
+    if (!swiper) return;
+
+    swiper.slideToLoop(swiper.realIndex - 1);
+  };
+
+  const goToNextSlide = () => {
+    const swiper = swiperRef.current;
+    if (!swiper) return;
+
+    swiper.slideToLoop(swiper.realIndex + 1);
+  };
+
   const HERO_SLIDES = [
     {
       condition: 'Acne & Acne Scars',
@@ -208,14 +224,13 @@ export default function Hero({ onBookClick }: HeroProps) {
           el: '.hero-pagination',
           clickable: true,
         }}
-        navigation={{
-          nextEl: '.hero-next',
-          prevEl: '.hero-prev'
-        }}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
+        }}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
         }}
         className="hero-swiper"
       >
@@ -303,10 +318,20 @@ export default function Hero({ onBookClick }: HeroProps) {
       {/* Navigation & Pagination positioned absolutely over the slider section */}
       <div className="absolute left-1/2 -translate-x-1/2 bottom-6 md:bottom-8 lg:bottom-10 z-30 flex items-center gap-6 lg:gap-8 bg-white/90 backdrop-blur-md py-3 px-6 rounded-full shadow-lg border border-gray-100">
         <div className="flex items-center gap-2">
-          <button className="hero-prev w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:text-[#8c1d5c] hover:border-[#8c1d5c] hover:shadow-md transition-all shadow-sm cursor-pointer">
+          <button
+            type="button"
+            onClick={goToPreviousSlide}
+            className="hero-prev w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:text-[#8c1d5c] hover:border-[#8c1d5c] hover:shadow-md transition-all shadow-sm cursor-pointer"
+            aria-label="Previous slide"
+          >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <button className="hero-next w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:text-[#8c1d5c] hover:border-[#8c1d5c] hover:shadow-md transition-all shadow-sm cursor-pointer">
+          <button
+            type="button"
+            onClick={goToNextSlide}
+            className="hero-next w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:text-[#8c1d5c] hover:border-[#8c1d5c] hover:shadow-md transition-all shadow-sm cursor-pointer"
+            aria-label="Next slide"
+          >
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>

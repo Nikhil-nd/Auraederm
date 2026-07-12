@@ -396,7 +396,7 @@ export const SERVICES: ServiceDetail[] = [
     duration: "30 mins"
   },
   {
-    id: "hair-scalp",
+    id: "hair-restoration",
     name: "Hair Restoration & Scalp Therapy",
     category: "hair",
     description: "Clinical solutions for hair thinning, alopecia, and dry scalp, featuring PRP and advanced growth factor micro-infusion.",
