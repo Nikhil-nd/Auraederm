@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Sparkles, HelpCircle, ArrowRight, Clock, Check, X, Calendar, ChevronDown, ChevronUp } from 'lucide-react';
 import { SERVICES } from '../data';
@@ -13,6 +13,8 @@ export default function ServicesSection({ onBookService }: ServicesSectionProps)
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'clinical' | 'aesthetic' | 'hair'>('all');
   const [selectedService, setSelectedService] = useState<ServiceDetail | null>(null);
   const [expandedServiceId, setExpandedServiceId] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
   const categories = [
     { id: 'all', name: 'All Treatments' },
@@ -25,6 +27,20 @@ export default function ServicesSection({ onBookService }: ServicesSectionProps)
     ? SERVICES
     : SERVICES.filter(s => s.category === selectedCategory);
 
+  const totalPages = Math.max(1, Math.ceil(filteredServices.length / itemsPerPage));
+  const paginatedServices = filteredServices.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  useEffect(() => {
+    setCurrentPage(1);
+    setExpandedServiceId(null);
+  }, [selectedCategory]);
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [currentPage, totalPages]);
+
   return (
     <section id="services" className="py-24 bg-slate-50 relative overflow-hidden scroll-mt-24">
       {/* Visual backdrop */}
@@ -32,10 +48,10 @@ export default function ServicesSection({ onBookService }: ServicesSectionProps)
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-serif text-3xl sm:text-4xl text-gray-900 font-medium">Treatments & Specializations</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl text-gray-900 font-medium">Treatments & Skin Conditions</h2>
           <div className="w-16 h-1 bg-[#8c1d5c] mx-auto mt-4 rounded-full"></div>
           <p className="mt-4 text-base text-gray-500 font-sans">
-            Compassionate, world-class medical and aesthetic treatments tailored to enhance your natural skin health and hair density.
+            Comprehensive care for common skin diseases, hair and scalp concerns, and aesthetic procedures tailored to your skin goals.
           </p>
         </div>
 
@@ -46,7 +62,6 @@ export default function ServicesSection({ onBookService }: ServicesSectionProps)
               key={cat.id}
               onClick={() => {
                 setSelectedCategory(cat.id as any);
-                setExpandedServiceId(null); // Collapse open accordion when switching categories
               }}
               className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
                 selectedCategory === cat.id
@@ -61,7 +76,7 @@ export default function ServicesSection({ onBookService }: ServicesSectionProps)
 
         {/* Services Grid - Desktop/Tablet Only */}
         <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredServices.map((service, idx) => (
+          {paginatedServices.map((service, idx) => (
             <motion.div
               layout
               key={service.id}
@@ -119,7 +134,7 @@ export default function ServicesSection({ onBookService }: ServicesSectionProps)
 
         {/* Services List - Mobile Only (Optimized interactive accordion) */}
         <div className="block md:hidden space-y-4">
-          {filteredServices.map((service) => {
+          {paginatedServices.map((service) => {
             const isExpanded = expandedServiceId === service.id;
             return (
               <div
@@ -198,6 +213,52 @@ export default function ServicesSection({ onBookService }: ServicesSectionProps)
             );
           })}
         </div>
+
+        {filteredServices.length > itemsPerPage && (
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-gray-500 font-sans">
+              Showing {Math.min(filteredServices.length, (currentPage - 1) * itemsPerPage + 1)}-{Math.min(filteredServices.length, currentPage * itemsPerPage)} of {filteredServices.length} treatments
+            </p>
+
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
+                disabled={currentPage === 1}
+                className="px-4 py-2 rounded-full border border-gray-200 text-xs font-semibold text-gray-600 bg-white hover:border-[#8c1d5c] hover:text-[#8c1d5c] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+              >
+                Previous
+              </button>
+
+              <div className="flex items-center gap-2">
+                {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
+                  <button
+                    key={page}
+                    type="button"
+                    onClick={() => setCurrentPage(page)}
+                    className={`w-10 h-10 rounded-full text-xs font-semibold transition-all ${
+                      currentPage === page
+                        ? 'bg-[#8c1d5c] text-white shadow-md'
+                        : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-300'
+                    }`}
+                    aria-current={currentPage === page ? 'page' : undefined}
+                  >
+                    {page}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
+                disabled={currentPage === totalPages}
+                className="px-4 py-2 rounded-full border border-gray-200 text-xs font-semibold text-gray-600 bg-white hover:border-[#8c1d5c] hover:text-[#8c1d5c] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* SERVICE DETAIL MODAL OVERLAY */}

@@ -19,10 +19,10 @@ export const CLINIC_INFO = {
 export const SERVICES: ServiceDetail[] = [
   {
     id: "acne-treatment",
-    name: "Advanced Acne & Scar Management",
+    name: "Acne & Acne Scar Management",
     category: "clinical",
     description: "Customized clinical treatments targeting acne at its root, including chemical peels, comedone extraction, and scar reduction.",
-    longDescription: "Our comprehensive acne program combines oral and topical therapeutics with state-of-the-art procedures. Dr. Aishwarya Devaraj conducts a complete skin analysis to identify the grade of acne (Grade I-IV) and designs a custom regimen of clinical extractions, medical-grade chemical peels, and advanced laser/microneedling therapies for post-acne scars.",
+    longDescription: "Our acne program combines medical management with in-clinic procedures to reduce active breakouts, control inflammation, and improve post-acne scarring. Treatment plans are individualized based on acne type, severity, and skin sensitivity.",
     benefits: [
       "Reduces active inflammatory acne lesions",
       "Prevents future breakouts and comedones",
@@ -36,29 +36,335 @@ export const SERVICES: ServiceDetail[] = [
     duration: "45 mins"
   },
   {
-    id: "aesthetic-peels",
-    name: "Medical Chemical Peels",
+    id: "pigmentation-disorders",
+    name: "Pigmentation Disorders Management",
     category: "aesthetic",
-    description: "Gentle yet effective chemical resurfacing to treat pigmentation, sun damage, fine lines, and uneven skin tone.",
-    longDescription: "We use premium, dermatologist-approved chemical agents (such as Salicylic, Glycolic, Lactic, and Yellow Peels) to gently exfoliate the damaged top layers of your skin. This stimulates cellular turnover and collagen production, revealing fresh, luminous, and evenly toned skin underneath.",
+    description: "Treatment for melasma, tanning, dark spots, and uneven skin tone using dermatologist-guided procedures and skincare.",
+    longDescription: "We assess the cause and depth of pigmentation, then tailor therapies such as depigmenting regimens, peels, laser support, and medical skincare to reduce melasma, tanning, and dark spots safely.",
     benefits: [
-      "Brightens dull and fatigued skin",
-      "Fades dark spots, melasma, and blemishes",
-      "Refines enlarged pores and smooths texture",
-      "Restores natural youthful glow"
+      "Fades melasma and sun-induced pigmentation",
+      "Improves overall skin tone and brightness",
+      "Reduces patchy or uneven discoloration",
+      "Supports long-term pigment control"
     ],
     faqs: [
-      { question: "Will my skin literally peel off?", answer: "Not always. Modern superficial peels work at a cellular level and cause invisible or very fine micro-flaking rather than dramatic sheets of peeling skin." },
-      { question: "How should I care for my skin post-peel?", answer: "Moisturization and rigorous sun protection (SPF 50+) are mandatory for 7 days post-treatment. Avoid active exfoliants like retinoids." }
+      { question: "Can pigmentation come back?", answer: "It can recur if triggers such as sun exposure are not controlled, so maintenance with sunscreen and medical follow-up is important." },
+      { question: "Are these treatments safe for sensitive skin?", answer: "Yes. We select treatments carefully based on skin type and sensitivity to minimize irritation." }
     ],
     duration: "30 mins"
   },
   {
-    id: "anti-aging",
-    name: "Anti-Aging & Skin Rejuvenation",
+    id: "skin-allergies",
+    name: "Skin Allergies & Chronic Itching",
+    category: "clinical",
+    description: "Medical care for eczema, dermatitis, urticaria, and contact allergy with itch control and trigger-based management.",
+    longDescription: "We diagnose the cause of chronic itching and rashes, then provide targeted treatment for eczema, dermatitis, urticaria, and allergic contact reactions. Care plans may include medication, trigger avoidance, and barrier repair strategies.",
+    benefits: [
+      "Relieves itching and redness",
+      "Treats recurrent flare-ups and inflammation",
+      "Identifies likely allergy or irritant triggers",
+      "Strengthens the skin barrier for long-term control"
+    ],
+    faqs: [
+      { question: "Do you treat recurring hives or urticaria?", answer: "Yes. We assess triggers and provide medical treatment for both acute and chronic urticaria." },
+      { question: "Can contact allergy be diagnosed in clinic?", answer: "Yes. A detailed history often helps identify the trigger, and further testing may be advised when needed." }
+    ],
+    duration: "30 mins"
+  },
+  {
+    id: "skin-infections",
+    name: "Skin Infection Treatment",
+    category: "clinical",
+    description: "Care for fungal, bacterial, viral, and parasitic skin infections affecting the skin, scalp, and nails.",
+    longDescription: "We diagnose and manage common and complex skin infections, including fungal rashes, bacterial boils, viral lesions, and parasitic infestations. Treatment is guided by the infection type, severity, and recurrence pattern.",
+    benefits: [
+      "Treats active infection and reduces spread",
+      "Relieves discomfort, itching, and inflammation",
+      "Addresses recurrent or resistant infections",
+      "Provides guidance for hygiene and prevention"
+    ],
+    faqs: [
+      { question: "Do all infections need tests?", answer: "Not always, but swabs, scrapings, or other tests may be used when the diagnosis is unclear or the infection keeps returning." },
+      { question: "Can fungal infections affect the scalp or nails?", answer: "Yes. Scalp, nail, and body infections are all commonly treated in dermatology." }
+    ],
+    duration: "30 mins"
+  },
+  {
+    id: "psoriasis-autoimmune",
+    name: "Psoriasis & Autoimmune Skin Disease Care",
+    category: "clinical",
+    description: "Specialized management for psoriasis and other immune-mediated skin diseases.",
+    longDescription: "We offer long-term management for psoriasis and related autoimmune skin diseases with a focus on symptom control, flare reduction, and quality of life. Treatment is personalized to disease extent, sites involved, and overall health status.",
+    benefits: [
+      "Reduces scaling, redness, and itching",
+      "Helps control chronic flare-ups",
+      "Supports safer long-term treatment planning",
+      "Improves comfort and daily function"
+    ],
+    faqs: [
+      { question: "Is psoriasis curable?", answer: "Psoriasis is typically a chronic condition, but it can often be well controlled with proper treatment and follow-up." },
+      { question: "Do you treat other autoimmune skin diseases too?", answer: "Yes. We evaluate similar immune-mediated skin conditions and choose treatment accordingly." }
+    ],
+    duration: "30 mins"
+  },
+  {
+    id: "vitiligo",
+    name: "Vitiligo (White Patches) Care",
+    category: "clinical",
+    description: "Diagnosis and management for depigmentation / white patch conditions with medical and procedural options.",
+    longDescription: "Vitiligo care focuses on stabilizing disease progression, encouraging repigmentation where possible, and supporting long-term management. The approach is tailored to lesion pattern, body site, and stage of disease.",
+    benefits: [
+      "Assesses disease activity and extent",
+      "Supports repigmentation strategies",
+      "Helps stabilize spreading lesions",
+      "Provides ongoing follow-up and counseling"
+    ],
+    faqs: [
+      { question: "Can vitiligo be treated early?", answer: "Yes. Early evaluation is important because treatment outcomes are often better when active spread is addressed promptly." },
+      { question: "Does vitiligo always spread?", answer: "Not always. Many cases can be stabilized with proper treatment and monitoring." }
+    ],
+    duration: "30 mins"
+  },
+  {
+    id: "hair-scalp",
+    name: "Hair & Scalp Disorders",
+    category: "hair",
+    description: "Clinical solutions for hair fall, alopecia, dandruff, scalp psoriasis, and other scalp concerns.",
+    longDescription: "Hair and scalp care includes evaluation for hair fall, alopecia, dandruff, scalp inflammation, and related disorders. We identify underlying causes and recommend medical, procedural, and lifestyle-based treatment plans.",
+    benefits: [
+      "Identifies the cause of hair loss or shedding",
+      "Treats dandruff and scalp inflammation",
+      "Supports regrowth in selected alopecia cases",
+      "Improves overall scalp health"
+    ],
+    faqs: [
+      { question: "Can dandruff cause hair fall?", answer: "Dandruff and scalp inflammation can worsen hair shedding, so treating the scalp often helps overall hair health." },
+      { question: "Do you manage alopecia?", answer: "Yes. We evaluate the type of alopecia and build a treatment plan accordingly." }
+    ],
+    duration: "45 mins"
+  },
+  {
+    id: "nail-disorders",
+    name: "Nail Infections & Nail Disorders",
+    category: "clinical",
+    description: "Treatment for nail fungal infection, discoloration, thickening, and other common nail problems.",
+    longDescription: "We evaluate nail infections and structural nail disorders to identify the exact cause of discoloration, brittleness, thickening, or lifting. Treatment may include medicines, local care, and prevention advice.",
+    benefits: [
+      "Treats fungal nail infection and inflammation",
+      "Improves nail appearance and strength",
+      "Prevents spread to surrounding skin",
+      "Supports long-term nail health"
+    ],
+    faqs: [
+      { question: "Are nail infections hard to treat?", answer: "They can take time, but with the right diagnosis and consistent treatment, improvement is possible." },
+      { question: "Can a nail problem be something other than fungus?", answer: "Yes. Trauma, psoriasis, and other skin conditions can also affect nails." }
+    ],
+    duration: "30 mins"
+  },
+  {
+    id: "growths",
+    name: "Moles, Warts, Corns, Calluses & Skin Growths",
+    category: "clinical",
+    description: "Evaluation and treatment of benign skin growths, warts, skin tags, corns, and calluses.",
+    longDescription: "We assess common skin growths and thickened lesions to determine whether they are benign and whether treatment or removal is appropriate. Options are selected based on the lesion type, location, and symptoms.",
+    benefits: [
+      "Assesses whether the lesion is benign",
+      "Treats annoying or painful skin growths",
+      "Improves comfort and cosmetic appearance",
+      "Provides removal options when appropriate"
+    ],
+    faqs: [
+      { question: "Should every mole be removed?", answer: "No. Moles are evaluated individually, and only lesions needing treatment or removal are recommended for a procedure." },
+      { question: "Can warts come back?", answer: "They can recur, so follow-up and preventive care are sometimes needed." }
+    ],
+    duration: "30 mins"
+  },
+  {
+    id: "cysts-scars-keloids",
+    name: "Cysts, Lipomas, Keloids & Scar Care",
+    category: "clinical",
+    description: "Treatment for cysts, lipomas, keloids, acne scars, and other scar-related concerns.",
+    longDescription: "This service includes evaluation of lumps, cysts, lipomas, keloids, and different scar types. We discuss medical and procedural options to reduce symptoms, improve appearance, and prevent worsening.",
+    benefits: [
+      "Evaluates lumps and scar tissue accurately",
+      "Improves painful or cosmetically bothersome lesions",
+      "Helps manage keloid recurrence risk",
+      "Supports scar revision planning"
+    ],
+    faqs: [
+      { question: "Do keloids need special care?", answer: "Yes. Keloids often need a tailored approach because they can recur if treated like ordinary scars." },
+      { question: "Are lipomas dangerous?", answer: "Most lipomas are benign, but they should still be clinically assessed before deciding on treatment." }
+    ],
+    duration: "30 mins"
+  },
+  {
+    id: "rosacea-sensitive-skin",
+    name: "Rosacea & Sensitive Skin Care",
     category: "aesthetic",
-    description: "Dermal fillers, botulinum toxin, and collagen stimulators to restore volume, smooth fine lines, and lift sagging skin.",
-    longDescription: "Dr. Aishwarya Devaraj specializes in natural-looking anti-aging enhancements. Utilizing her advanced Fellowship training, she provides tailored therapies such as anti-wrinkle injections, dermal fillers to restore cheek and jawline volume, and specialized skin-boosters (like hyaluronic acid micro-injections) to deeply hydrate and lift the skin.",
+    description: "Management of facial redness, flushing, sensitivity, and reactive skin.",
+    longDescription: "We help patients with rosacea and sensitive skin reduce redness, burning, and flare triggers. Treatment focuses on calming the skin barrier and selecting low-irritation procedures and skincare.",
+    benefits: [
+      "Reduces redness and facial flushing",
+      "Calms burning and stinging sensations",
+      "Identifies common trigger patterns",
+      "Supports gentle skin-barrier repair"
+    ],
+    faqs: [
+      { question: "Can sensitive skin still get procedures?", answer: "Yes, but they must be carefully selected and adjusted to the patient’s skin tolerance." },
+      { question: "Is rosacea the same as acne?", answer: "No. It can look similar at times, but it is a different condition and needs different treatment." }
+    ],
+    duration: "30 mins"
+  },
+  {
+    id: "pediatric-geriatric",
+    name: "Pediatric & Geriatric Dermatology",
+    category: "clinical",
+    description: "Dermatology care for newborns, children, older adults, and age-specific skin issues.",
+    longDescription: "We provide age-appropriate skin care for newborns, children, and older adults, addressing sensitive, chronic, and age-related dermatological concerns with safe, individualized treatment plans.",
+    benefits: [
+      "Offers age-specific dermatology care",
+      "Supports newborn and child skin concerns",
+      "Addresses age-related dryness and fragility",
+      "Uses safer treatment selection for vulnerable groups"
+    ],
+    faqs: [
+      { question: "Do you see newborn skin concerns?", answer: "Yes. Newborn and infant skin issues are evaluated with extra care and age-appropriate management." },
+      { question: "Is geriatric skin care different?", answer: "Yes. Older skin is more fragile and often needs gentler treatment choices." }
+    ],
+    duration: "30 mins"
+  },
+  {
+    id: "pregnancy-dermatosis",
+    name: "Pregnancy-Induced Dermatosis",
+    category: "clinical",
+    description: "Care for skin problems that appear or worsen during pregnancy.",
+    longDescription: "Pregnancy-related skin conditions are assessed carefully to protect both mother and baby. We help manage itching, rashes, pigment changes, and other pregnancy-associated dermatoses with safe treatment choices.",
+    benefits: [
+      "Uses pregnancy-conscious treatment planning",
+      "Relieves itch and rash symptoms",
+      "Addresses hormonal skin changes",
+      "Supports maternal comfort and safety"
+    ],
+    faqs: [
+      { question: "Are all skin medicines safe in pregnancy?", answer: "No. Treatment choice must be individualized, so medical supervision is important." },
+      { question: "Can pregnancy worsen existing skin disease?", answer: "Yes. Pregnancy can change how some skin conditions behave." }
+    ],
+    duration: "30 mins"
+  },
+  {
+    id: "sti-genital",
+    name: "STIs & Genital Skin Disorders",
+    category: "clinical",
+    description: "Diagnosis and management of sexually transmitted infections and genital skin conditions.",
+    longDescription: "We offer confidential evaluation and treatment for STIs and genital skin concerns, including infections, rashes, irritation, and recurrent symptoms. Care is discreet, evidence-based, and tailored to the diagnosis.",
+    benefits: [
+      "Confidential and discreet evaluation",
+      "Treats infection and irritation causes",
+      "Supports partner and recurrence counseling",
+      "Helps prevent spread and reinfection"
+    ],
+    faqs: [
+      { question: "Is this visit confidential?", answer: "Yes. We handle these concerns with privacy and professionalism." },
+      { question: "Do genital symptoms always mean an STI?", answer: "No. Several non-STI skin conditions can affect the genital area as well." }
+    ],
+    duration: "30 mins"
+  },
+  {
+    id: "skin-cancer-screening",
+    name: "Skin Cancer Screening & Chronic Skin Care",
+    category: "clinical",
+    description: "Screening of suspicious lesions and long-term care for chronic skin conditions.",
+    longDescription: "We evaluate suspicious moles, non-healing lesions, and chronic skin disorders to identify issues early and guide appropriate next steps. Chronic skin conditions are managed with structured follow-up and long-term planning.",
+    benefits: [
+      "Checks suspicious or changing lesions",
+      "Supports early medical evaluation",
+      "Helps manage chronic skin disease",
+      "Provides structured follow-up care"
+    ],
+    faqs: [
+      { question: "Should I get a changing mole checked?", answer: "Yes. Any lesion that grows, changes color, bleeds, or becomes painful should be assessed." },
+      { question: "Do chronic skin conditions need follow-up?", answer: "Yes. Ongoing follow-up helps maintain control and adjust treatment when needed." }
+    ],
+    duration: "30 mins"
+  },
+  {
+    id: "laser-procedures",
+    name: "Laser Procedures",
+    category: "aesthetic",
+    description: "LASERS for hair reduction, resurfacing, acne scars, pigmentation, and tattoo removal.",
+    longDescription: "We offer laser-based procedures for hair reduction, resurfacing, acne scar improvement, pigmentation correction, and tattoo removal. Treatment choice depends on skin type, concern, and expected recovery.",
+    benefits: [
+      "Targets multiple aesthetic concerns",
+      "Improves acne scars and texture",
+      "Reduces unwanted hair growth",
+      "Supports pigment and tattoo treatment"
+    ],
+    faqs: [
+      { question: "Are lasers suitable for every skin type?", answer: "Not every laser is ideal for every skin type, so the device and settings are selected carefully." },
+      { question: "How many laser sessions are needed?", answer: "That depends on the concern being treated and the depth or extent of the problem." }
+    ],
+    duration: "45 mins"
+  },
+  {
+    id: "mnrf",
+    name: "Microneedling with Radiofrequency (MNRF)",
+    category: "aesthetic",
+    description: "Collagen remodelling treatment for deep scars, stretch marks, and skin tightening concerns.",
+    longDescription: "MNRF uses microneedling plus radiofrequency energy to stimulate collagen remodelling and improve deeper scars, stretch marks, and skin texture. It is selected when a stronger regenerative procedure is needed.",
+    benefits: [
+      "Improves deep acne scars",
+      "Helps remodel collagen",
+      "Reduces stretch mark visibility",
+      "Supports texture and skin tightening goals"
+    ],
+    faqs: [
+      { question: "Is MNRF painful?", answer: "A numbing cream is usually used to improve comfort during the procedure." },
+      { question: "How many sessions are usually needed?", answer: "It varies by the concern and severity, but multiple sessions are commonly recommended." }
+    ],
+    duration: "45 mins"
+  },
+  {
+    id: "chemical-peels",
+    name: "Chemical Peels",
+    category: "aesthetic",
+    description: "Chemical peels for acne, rejuvenation, party peel, pigmentation, and more.",
+    longDescription: "Chemical peels are selected based on the problem being treated, such as acne, pigmentation, dullness, or pre-event glow. The peel strength and formulation are matched to the skin’s tolerance and treatment goal.",
+    benefits: [
+      "Helps acne and acne marks",
+      "Improves glow and skin smoothness",
+      "Targets pigmentation and tanning",
+      "Can be tailored for event-ready skin"
+    ],
+    faqs: [
+      { question: "Will I peel visibly after every session?", answer: "Not always. Some peels cause mild flaking, while others work with minimal visible peeling." },
+      { question: "Are peels only for oily skin?", answer: "No. Different peel types can be chosen for multiple skin concerns and skin types." }
+    ],
+    duration: "30 mins"
+  },
+  {
+    id: "prp",
+    name: "PRP Injections",
+    category: "hair",
+    description: "Platelet-rich plasma injections for hair restoration and selected skin rejuvenation goals.",
+    longDescription: "PRP uses your own platelet-rich plasma to support hair fall treatment and selected regenerative skin procedures. It is commonly used as part of hair restoration protocols and can be combined with other treatments.",
+    benefits: [
+      "Supports hair fall treatment",
+      "Uses the body’s own growth factors",
+      "Can complement scalp procedures",
+      "May help selected regenerative skin goals"
+    ],
+    faqs: [
+      { question: "Is PRP a medication?", answer: "No. It is an autologous procedure that uses plasma prepared from your own blood." },
+      { question: "Can PRP be combined with other treatments?", answer: "Yes. It is often used with other hair and skin procedures when appropriate." }
+    ],
+    duration: "45 mins"
+  },
+  {
+    id: "anti-aging",
+    name: "Anti-Ageing Skin Procedures",
+    category: "aesthetic",
+    description: "Natural-looking anti-ageing procedures to soften fine lines, restore volume, and refresh the skin.",
+    longDescription: "We provide personalized anti-ageing procedures that may include injectables, skin boosters, and other rejuvenation strategies. The goal is to maintain a natural look while improving wrinkles, volume loss, and overall skin quality.",
     benefits: [
       "Smooths dynamic lines (crow's feet, forehead, frown lines)",
       "Restores lost facial volume with natural fillers",
@@ -70,6 +376,24 @@ export const SERVICES: ServiceDetail[] = [
       { question: "Does the treatment hurt?", answer: "We apply a medical-grade topical numbing cream beforehand, and use ultra-fine needles, making the procedure highly comfortable." }
     ],
     duration: "60 mins"
+  },
+  {
+    id: "iv-glutathione",
+    name: "IV Glutathione Therapy",
+    category: "aesthetic",
+    description: "IV glutathione for wellness, pigment control, and antioxidant support.",
+    longDescription: "IV glutathione therapy is used as a wellness and antioxidant-focused treatment with pigment-control goals in selected cases. Suitability, frequency, and safety should always be determined medically.",
+    benefits: [
+      "Supports antioxidant wellness goals",
+      "May help selected pigment-control plans",
+      "Can complement broader aesthetic care",
+      "Delivered under medical supervision"
+    ],
+    faqs: [
+      { question: "Is IV glutathione for everyone?", answer: "No. It should only be considered after medical review to confirm suitability." },
+      { question: "Can it be part of a broader treatment plan?", answer: "Yes. It may be used alongside other procedures where clinically appropriate." }
+    ],
+    duration: "30 mins"
   },
   {
     id: "hair-scalp",
