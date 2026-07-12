@@ -8,7 +8,7 @@ export const CLINIC_INFO = {
   phone: "+91 9740392626",
   email: "aishwaryadevraj.adha@gmail.com",
   instagram: "aishwarya_raj26",
-  address: "Auraderm, Sector 23, Gurugram, Haryana, India",
+  address: "Auraederm, Sector 23, Gurugram, Haryana, India",
   googleMapsMockUrl: "https://maps.google.com/maps?q=28.5113708,77.0480877&hl=en&z=18&output=embed",
   timings: [
     { days: "Monday - Saturday", hours: "10:00 AM - 07:00 PM" },
@@ -151,7 +151,7 @@ export const EDUCATION_MILESTONES = [
 export const EXPERIENCES = [
   {
     role: "Founder and consultant",
-    organization: "Auraderm Skin Solutions, Sector 23, Gurugram",
+    organization: "Auraederm Skin Solutions, Sector 23, Gurugram",
     period: "2026 - Present",
    description: "Founded Auraederm Skin Solutions with a vision to provide ethical, evidence-based dermatology care while offering comprehensive diagnosis, treatment, and advanced skin, hair, and aesthetic procedures."},
   {

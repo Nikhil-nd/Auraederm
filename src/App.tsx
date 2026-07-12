@@ -12,11 +12,9 @@ import { CLINIC_INFO } from './data';
 
 // Import image assets directly so Vite compiles and resolves their correct public paths in preview and production
 import doctorPortraitPath from './assets/images/doctor_portrait_1782883002577.jpg';
-import clinicHeroPath from './assets/images/clinic_hero_1782883016455.jpg';
 import skincareTreatmentPath from './assets/images/skincare_treatment_1782883034252.jpg';
 
 const DOCTOR_PORTRAIT_PATH = doctorPortraitPath;
-const CLINIC_HERO_PATH = clinicHeroPath;
 const TREATMENT_PATH = skincareTreatmentPath;
 
 export default function App() {
@@ -48,7 +46,7 @@ export default function App() {
       />
 
       {/* Main Page Sections */}
-      <Hero onBookClick={handleOpenBookingGeneral} clinicHeroPath={CLINIC_HERO_PATH} />
+      <Hero onBookClick={handleOpenBookingGeneral} />
       
       <AboutSection doctorPortraitPath={DOCTOR_PORTRAIT_PATH} />
       

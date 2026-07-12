@@ -115,7 +115,7 @@ export default function AboutSection({ doctorPortraitPath }: AboutSectionProps) 
                 </div>
                 <div className="mt-5">
                   <h4 className="font-semibold text-sm text-gray-800 uppercase tracking-wide mb-1">Clinic Base</h4>
-                  <p className="text-xs text-gray-500 font-sans">Sector 23, Gurugram, Haryana</p>
+                  <p className="text-xs text-gray-500 font-sans">Sector 23 Market, Gurugram, Haryana</p>
                 </div>
               </div>
             </div>
